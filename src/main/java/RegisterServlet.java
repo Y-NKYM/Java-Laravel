@@ -1,41 +1,42 @@
-
-
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class RegisterServlet
- */
-@WebServlet("/RegisterServlet")
+import bean.RegisterBean;
+
+@WebServlet("/register")
 public class RegisterServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RegisterServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
+  public void doPost(HttpServletRequest req, HttpServletResponse res)
+      throws IOException, ServletException {
+    // リクエストの文字コード指定
+    req.setCharacterEncoding("utf-8");
+    
+    // 入力情報の取得
+    String name = req.getParameter("name");
+    String age = req.getParameter("age");
+    String[] langs = req.getParameterValues("lang");
+    res.setContentType("text/html;charset=utf-8");
+    
+    // Beanの作成
+    RegisterBean rb = new RegisterBean();
+    rb.setName(name);
+    rb.setAge(age);
+    rb.setLangs(langs);
+    
+    // Beanをリクエストに格納
+    req.setAttribute("rb", rb);
+    
+    // register.jspへフォワード
+    RequestDispatcher rd = req.getRequestDispatcher("/register.jsp");
+    rd.forward(req, res);
+  }
+  public void doGet(HttpServletRequest req, HttpServletResponse res)
+      throws IOException, ServletException {
+    doPost(req, res);
+  }
 }
