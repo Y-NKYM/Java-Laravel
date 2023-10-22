@@ -11,5 +11,6 @@
 <body>
 	<h2><jsp:getProperty name="cnt" property="count" />回目のアクセスです。</h2>
 	<%@ include file="include.jsp" %>
+	<jsp:include page="include2.jsp" />
 </body>
 </html>

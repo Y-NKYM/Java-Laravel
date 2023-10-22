@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.Date" %>
 
-<h1>インクルード内のHTML</h1>
+<h1>JSP:includeしたHTML</h1>
 
-<h1>インクルード内のJAVA記述</h1>
+<h1>JSP:includeしたJAVA記述</h1>
 <% out.println(new Date()); %>
