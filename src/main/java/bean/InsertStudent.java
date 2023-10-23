@@ -8,8 +8,8 @@ public class InsertStudent {
 	
 	public static void main(String[] args) {
 		final String URL = "jdbc:mysql://localhost/sampledb";
-		final String USER = System.getenv("DB_USERNAME");
-		final String PASS = System.getenv("DB_PASSWORD");
+		final String USER = -;
+		final String PASS = -;
 		String sql = "INSERT INTO student VALUES(6, '小林', 95)";
 		
 		Connection con = null;
