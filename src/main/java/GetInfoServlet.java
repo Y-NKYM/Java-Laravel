@@ -8,15 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PracticeWebServlet
+ * WebServlet指定ルートを記述でサーブレットの読み込み。
+ * JSPファイルの拡張子記述でサーブレット読み込むことなくJSPを表示。
  */
 @WebServlet("/getinfo")
 public class GetInfoServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res)
 	    throws IOException, ServletException {
 	    req.setCharacterEncoding("utf-8");
-	    
-	  
 	    
 	    req.setAttribute("message", "HelloWorld!");
 	    String name = req.getParameter("name");
