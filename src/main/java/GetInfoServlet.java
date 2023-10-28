@@ -25,7 +25,7 @@ public class GetInfoServlet extends HttpServlet {
 	    String pathInfo = req.getPathInfo();
 	    System.out.println(servInfo.substring(1));
 	    System.out.println(pathInfo);
-	    RequestDispatcher rd = req.getRequestDispatcher("/getInfo.jsp");
+	    RequestDispatcher rd = req.getRequestDispatcher("../getInfo.jsp");
 	    rd.forward(req, res);
 	}
 }
