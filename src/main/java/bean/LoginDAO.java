@@ -79,8 +79,8 @@ public class LoginDAO {
 		return lb;
 	}
 	
-	public int insert(int id, String email, String password) {
-		String sql = "INSERT INTO user VALUES("+id+",'"+email+"',"+password+")";
+	public int insert(String email, String password) {
+		String sql = "INSERT INTO user(email, password) VALUES("+"'"+email+"', '"+password+"')";
 		return executeSql(sql);
 	}
 	public int update(int id, String email, String password) {
